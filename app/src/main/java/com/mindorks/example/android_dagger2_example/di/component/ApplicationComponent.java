@@ -11,6 +11,7 @@ import com.mindorks.example.android_dagger2_example.data.SharedPrefsHelper;
 import com.mindorks.example.android_dagger2_example.di.module.InfoModule;
 import com.mindorks.example.android_dagger2_example.di.qualifier.ApplicationContext;
 import com.mindorks.example.android_dagger2_example.di.module.ApplicationModule;
+import com.mindorks.example.android_dagger2_example.di.scopes.ActivityScope;
 import com.mindorks.example.android_dagger2_example.di.scopes.ApplicationScope;
 
 import javax.inject.Singleton;
@@ -30,6 +31,8 @@ public interface ApplicationComponent {
 
     @ApplicationContext
     Context getContext();
+
+
 
     Application getApplication();
 

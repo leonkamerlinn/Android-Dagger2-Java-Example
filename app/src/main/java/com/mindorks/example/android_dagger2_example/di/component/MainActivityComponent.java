@@ -1,12 +1,10 @@
 package com.mindorks.example.android_dagger2_example.di.component;
 
-import android.app.Application;
-
 import com.mindorks.example.android_dagger2_example.MainActivity;
-import com.mindorks.example.android_dagger2_example.MainPresenter;
+import com.mindorks.example.android_dagger2_example.di.module.ActivityModule;
+import com.mindorks.example.android_dagger2_example.di.module.InfoModule;
 import com.mindorks.example.android_dagger2_example.di.module.MainActivityModule;
 import com.mindorks.example.android_dagger2_example.di.scopes.ActivityScope;
-import com.mindorks.example.android_dagger2_example.di.module.ActivityModule;
 
 import dagger.Component;
 
@@ -16,7 +14,7 @@ import dagger.Component;
 
 @ActivityScope
 @Component(dependencies = ApplicationComponent.class, modules = {ActivityModule.class, MainActivityModule.class})
-public interface ActivityComponent {
+public interface MainActivityComponent {
 
     void inject(MainActivity mainActivity);
 

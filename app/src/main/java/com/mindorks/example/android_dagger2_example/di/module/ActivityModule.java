@@ -7,7 +7,13 @@ import com.mindorks.example.android_dagger2_example.MainContract;
 import com.mindorks.example.android_dagger2_example.MainPresenter;
 import com.mindorks.example.android_dagger2_example.di.qualifier.ActivityContext;
 import com.mindorks.example.android_dagger2_example.di.qualifier.ApplicationContext;
+import com.mindorks.example.android_dagger2_example.di.qualifier.DatabaseInfo;
 import com.mindorks.example.android_dagger2_example.di.scopes.ActivityScope;
+
+import java.util.Random;
+
+import javax.inject.Named;
+import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
@@ -37,5 +43,14 @@ public class ActivityModule {
     }
 
 
+    @Provides
+    @DatabaseInfo
+    int provideRandom() {
+        int min = 10;
+        int max = 80;
 
+        Random r = new Random();
+        int i1 = r.nextInt(max - min + 1) + min;
+        return i1;
+    }
 }

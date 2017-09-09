@@ -7,6 +7,10 @@ import android.content.SharedPreferences;
 import com.mindorks.example.android_dagger2_example.di.qualifier.ApplicationContext;
 import com.mindorks.example.android_dagger2_example.di.qualifier.DatabaseInfo;
 
+import java.util.Random;
+
+import javax.inject.Named;
+
 import dagger.Module;
 import dagger.Provides;
 
@@ -33,6 +37,7 @@ public class ApplicationModule {
     Application provideApplication() {
         return mApplication;
     }
+
 
 
 

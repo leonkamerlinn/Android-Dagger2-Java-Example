@@ -6,6 +6,10 @@ import android.content.SharedPreferences;
 import com.mindorks.example.android_dagger2_example.di.qualifier.ApplicationContext;
 import com.mindorks.example.android_dagger2_example.di.qualifier.DatabaseInfo;
 
+import java.util.Random;
+
+import javax.inject.Named;
+
 import dagger.Module;
 import dagger.Provides;
 
@@ -30,4 +34,6 @@ public class InfoModule {
     SharedPreferences provideSharedPrefs(@ApplicationContext Context context) {
         return context.getSharedPreferences("demo-prefs", Context.MODE_PRIVATE);
     }
+
+
 }

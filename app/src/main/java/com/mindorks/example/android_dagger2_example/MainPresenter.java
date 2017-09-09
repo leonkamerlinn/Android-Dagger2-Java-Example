@@ -5,10 +5,12 @@ import android.widget.Toast;
 
 import com.mindorks.example.android_dagger2_example.di.qualifier.ActivityContext;
 import com.mindorks.example.android_dagger2_example.di.qualifier.ApplicationContext;
+import com.mindorks.example.android_dagger2_example.di.qualifier.DatabaseInfo;
 import com.mindorks.example.android_dagger2_example.di.scopes.ActivityScope;
 import com.mindorks.example.android_dagger2_example.di.scopes.ApplicationScope;
 
 import javax.inject.Inject;
+import javax.inject.Named;
 
 /**
  * Created by Leon on 6.9.2017..
@@ -17,6 +19,9 @@ import javax.inject.Inject;
 public class MainPresenter {
     private final MainContract mView;
     private final Context mContext;
+
+
+
 
 
     @Inject

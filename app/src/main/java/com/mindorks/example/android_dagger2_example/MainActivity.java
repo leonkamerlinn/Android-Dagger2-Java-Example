@@ -1,7 +1,5 @@
 package com.mindorks.example.android_dagger2_example;
 
-import android.content.SharedPreferences;
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -11,11 +9,14 @@ import android.widget.Toast;
 import com.mindorks.example.android_dagger2_example.data.DataManager;
 import com.mindorks.example.android_dagger2_example.data.SharedPrefsHelper;
 import com.mindorks.example.android_dagger2_example.data.model.User;
-import com.mindorks.example.android_dagger2_example.di.component.ActivityComponent;
-import com.mindorks.example.android_dagger2_example.di.component.DaggerActivityComponent;
+
+import com.mindorks.example.android_dagger2_example.di.component.DaggerMainActivityComponent;
+import com.mindorks.example.android_dagger2_example.di.component.MainActivityComponent;
 import com.mindorks.example.android_dagger2_example.di.module.ActivityModule;
+import com.mindorks.example.android_dagger2_example.di.qualifier.DatabaseInfo;
 
 import javax.inject.Inject;
+import javax.inject.Named;
 
 public class MainActivity extends AppCompatActivity implements MainContract {
 
@@ -26,17 +27,16 @@ public class MainActivity extends AppCompatActivity implements MainContract {
     @Inject
     SharedPrefsHelper sharedPrefsHelper;
 
-    private ActivityComponent activityComponent;
+
 
     private TextView mTvUserInfo;
     private TextView mTvAccessToken;
 
-
-    public ActivityComponent getActivityComponent() {
+    private MainActivityComponent activityComponent;
+    public MainActivityComponent getActivityComponent() {
         if (activityComponent == null) {
-            activityComponent = DaggerActivityComponent.builder()
+            activityComponent = DaggerMainActivityComponent.builder()
                     .activityModule(new ActivityModule(this))
-
                     .applicationComponent(DemoApplication.get(this).getComponent())
                     .build();
         }
@@ -53,7 +53,6 @@ public class MainActivity extends AppCompatActivity implements MainContract {
         mTvUserInfo = (TextView) findViewById(R.id.tv_user_info);
         mTvAccessToken = (TextView) findViewById(R.id.tv_access_token);
 
-        mPresenter.showToast("Hello from presenter");
     }
 
     @Override
